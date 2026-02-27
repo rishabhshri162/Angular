@@ -21,9 +21,13 @@ export class SignupComponent {
 
   signUp() {
     let self = this;
-    console.log('form data== ', this.form.data);
+
+    console.log('form data== ', this.form.data);   //print form data in console
+
+     
     this.httpService.post(this.endpoint, this.form.data, function (response: any) {
-      console.log('response ====== ', response)
+
+      console.log('response ====== ', response)  //print response in console
 
       if (response.success == false && response.result.inputerror) {
         self.form.inputerror = response.result.inputerror;
