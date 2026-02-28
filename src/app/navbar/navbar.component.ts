@@ -7,18 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  constructor( private router : Router) {}
+  constructor(private router: Router) {}
 
   form: any = {
     data: {},
   };
 
   isLogin() {
-
     let check = localStorage.getItem('firstName');
     if (check != null && check != undefined && check != '' && check != 'null') {
       this.form.data.firstName = check;
+      this.form.data.lastName = localStorage.getItem('lastName');
       this.form.data.roleName = localStorage.getItem('roleName');
+      this.form.data.id = localStorage.getItem('id');
 
       return true;
     } else {
@@ -26,9 +27,8 @@ export class NavbarComponent {
     }
   }
 
-  logout(){
+  logout() {
     localStorage.clear();
-    this.router.navigateByUrl('/login');
-    
+    this.router.navigateByUrl('/login?message=User logged out successfully');
   }
 }

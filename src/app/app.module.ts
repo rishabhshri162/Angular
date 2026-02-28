@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+import { UserListComponent } from './user/user-list.component';
+import { RoleComponent } from './role/role.component';
+import { RoleListComponent } from './role/role-list.component';
 
 
 
@@ -21,7 +24,10 @@ import { UserComponent } from './user/user.component';
     FooterComponent,
     SignupComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    UserListComponent,
+    RoleComponent,
+    RoleListComponent
   ],
   imports: [
     BrowserModule,
