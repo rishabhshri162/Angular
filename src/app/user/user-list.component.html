@@ -5,11 +5,13 @@
         <tr>
             <th>First Name</th>
             <td><input type="text" name="firstName" [(ngModel)]="form.searchParam.firstName"
-                    placeholder="search by firstName">&nbsp;
+                    placeholder="search by firstName">&nbsp;&nbsp;<input type="text" name="lastName" [(ngModel)]="form.searchParam.lastName"
+                    placeholder="search by lastName">
                 <button (click)="search()">search</button>
             </td>
         </tr>
     </table>
+    <br>
 
     <table width="100%" border="1px">
 
