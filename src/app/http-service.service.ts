@@ -14,8 +14,10 @@ export class HttpServiceService {
     })
   }
 
+
   get(endpoint: any, callback: any) {
-
+    this.httpClient.get(endpoint).subscribe((response) => {
+      callback(response);
+    })
   }
-
 }
