@@ -10,16 +10,12 @@
             <td><input type="text" name="lastName" [(ngModel)]="form.searchParam.lastName"
                     placeholder="search by lastName"></td>
             <th>Role</th>
-            <td>
-                <select name="roleId" [(ngModel)]="form.searchParam.roleId">
-                    <option [ngValue]="" value="undefined">{{'---------Select Role---------' }}</option>
-                    <option [value]="1">admin</option>
-                    <option [value]="2">student</option>
-                    <option [value]="3">faculty</option>
-                    <option [value]="4">college</option>
-                    <option [value]="5">kiosk</option>
-                </select>
-            </td>
+                <td>
+                    <select name="roleId" [(ngModel)]="form.searchParam.roleId">
+                        <option [ngValue]="" value="undefined">{{'---------Select Role---------' }}</option>
+                        <option *ngFor="let role of form.roleList" [ngValue]="role.key">{{role.value}}</option>
+                    </select>
+                </td>
             <td><button (click)="search()">search</button></td>
         </tr>
     </table>
@@ -32,7 +28,7 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Login</th>
-            <!-- <th>Role Name</th> -->
+            <th>Role Name</th>
             <th>Dob</th>
             <th>Edit</th>
         </tr>
@@ -43,7 +39,7 @@
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
             <td>{{user.loginId}}</td>
-            <!-- <td>{{user.roleName}}</td> -->
+            <td>{{user.roleName}}</td>
             <td>{{user.dob | date: 'yyyy-MM-dd'}}</td>
              <td><a (click)="edit('/user/' + user.id)"><span style="color: blue;">Edit</span></a></td>
         </tr>

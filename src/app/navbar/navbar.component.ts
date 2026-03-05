@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private httpClient: HttpClient) {}
 
   form: any = {
     data: {},
@@ -29,6 +30,9 @@ export class NavbarComponent {
 
   logout() {
     localStorage.clear();
+    this.httpClient.post('http://localhost:8080/Auth/logout', {}).subscribe((res: any) => {
+      console.log("logout res: ", res)
+    })
     this.router.navigateByUrl('/login?message=User logged out successfully');
   }
 }
